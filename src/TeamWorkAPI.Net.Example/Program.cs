@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using TeamWorkAPI.Net.Items;
 using TeamWorkAPI.Net.Response;
 
 namespace TeamWorkAPI.Net.Example

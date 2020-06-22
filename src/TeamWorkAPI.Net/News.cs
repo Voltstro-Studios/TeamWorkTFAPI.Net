@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Net.Http;
 using Newtonsoft.Json;
+using TeamWorkAPI.Net.Items;
 using TeamWorkAPI.Net.Response;
 
 namespace TeamWorkAPI.Net

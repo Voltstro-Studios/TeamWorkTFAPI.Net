@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace TeamWorkAPI.Net
+namespace TeamWorkAPI.Net.Items
 {
 	/// <summary>
 	/// Represents a news post
