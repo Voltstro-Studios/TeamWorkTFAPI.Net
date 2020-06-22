@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Net.Http;
 using Newtonsoft.Json;
+using TeamWorkAPI.Net.Extensions;
 using TeamWorkAPI.Net.Items;
 using TeamWorkAPI.Net.Response;
 
@@ -33,8 +34,7 @@ namespace TeamWorkAPI.Net
 		public ListLatestArticlesResponse ListLatestArticles()
 		{
 			//Get a response from the server
-			HttpResponseMessage responseMessage = client.GetAsync(ArticlesApiEndpoint).Result;
-			string jsonResult = responseMessage.Content.ReadAsStringAsync().Result;
+			string jsonResult = client.GetJsonData(ArticlesApiEndpoint);
 
 			try
 			{
@@ -60,8 +60,7 @@ namespace TeamWorkAPI.Net
 		public NewsPost GetSpecificArticle(string hash)
 		{
 			//Get a response from the server
-			HttpResponseMessage responseMessage = client.GetAsync(GetArticleApiEndpoint.Replace("%HASH%", hash)).Result;
-			string jsonResult = responseMessage.Content.ReadAsStringAsync().Result;
+			string jsonResult = client.GetJsonData(GetArticleApiEndpoint.Replace("%HASH%", hash));
 
 			try
 			{

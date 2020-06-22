@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Text;
+﻿using System.Net.Http;
 
 namespace TeamWorkAPI.Net
 {
@@ -11,11 +8,17 @@ namespace TeamWorkAPI.Net
 		{
 			client = client ?? new HttpClient();
 			News = new News(settings, client);
+			Creators = new Creators(settings, client);
 		}
 
 		/// <summary>
 		/// Retrieve news articles from Team Fortress 2 related websites.
 		/// </summary>
 		public News News { get; }
+
+		/// <summary>
+		/// Retrieve information about creators from Teamwork.tf.
+		/// </summary>
+		public Creators Creators { get; }
 	}
 }

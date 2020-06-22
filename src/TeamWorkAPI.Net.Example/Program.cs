@@ -24,6 +24,15 @@ namespace TeamWorkAPI.Net.Example
 			NewsPost newsPost = teamWorkAPI.News.GetSpecificArticle("a60761dd5cf0ad6922fecb1ef0e3250d");
 			Console.WriteLine(newsPost.Title);
 
+			Console.WriteLine("\n=== Getting a YouTuber ===\n");
+
+			//Get a YouTuber
+			YouTuber[] youTuber = teamWorkAPI.Creators.GetYoutuber("76561198072335402");
+			foreach (YouTuber item in youTuber)
+			{
+				Console.WriteLine($"{item.Name} ({item.YouTubeAccount})");
+			}
+
 			Console.ReadKey();
 		}
 	}
