@@ -2,6 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Voltstro</Authors>
+    <Company>Voltstro-Studios</Company>
+    <Description>TeamWorkTFAPI.Net - Unofficial C# library for interacting with teamwork.tf's API.</Description>
+    <Copyright>Copyright © Voltstro-Studios 2020</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/Voltstro-Studios/Wiki.Net</RepositoryUrl>
+    <RepositoryType>Github</RepositoryType>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>
