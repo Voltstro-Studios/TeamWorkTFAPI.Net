@@ -14,7 +14,14 @@ namespace TeamWorkAPI.Net.Example
 			foreach (NewsPost post in response.News)
 			{
 				Console.WriteLine($"{post.Title}  (@{post.CreatedAtInfo.Date})");
+				Console.WriteLine(post.Hash);
 			}
+
+			Console.WriteLine("\n=== Getting a news post ===\n");
+
+			//Get a news article
+			NewsPost newsPost = teamWorkAPI.News.GetSpecificArticle("a60761dd5cf0ad6922fecb1ef0e3250d");
+			Console.WriteLine(newsPost.Title);
 
 			Console.ReadKey();
 		}

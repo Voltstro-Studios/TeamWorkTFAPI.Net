@@ -22,6 +22,7 @@ namespace TeamWorkAPI.Net
 		private readonly HttpClient client;
 
 		private string ArticlesApiEndpoint => $"https://teamwork.tf/api/v1/news?key={settings.ApiKey}";
+		private string GetArticleApiEndpoint => $"https://teamwork.tf/api/v1/news/hash/%HASH%?key={settings.ApiKey}";
 
 		/// <summary>
 		/// Get an overview of the last 20 news items posted
@@ -40,6 +41,30 @@ namespace TeamWorkAPI.Net
 					JsonConvert.DeserializeObject<List<NewsPost>>(jsonResult);
 
 				ListLatestArticlesResponse response = new ListLatestArticlesResponse(searchResponse);
+
+				return response;
+			}
+			catch (JsonSerializationException)
+			{
+				throw new Exception("Json deserialization failed! This could be because of malformed data or the API key is incorrect!");
+			}
+		}
+
+		/// <summary>
+		/// Get a specific news article
+		/// </summary>
+		/// <param name="hash"></param>
+		/// <returns></returns>
+		/// <exception cref="Exception">Occurs when the Json deserialization fails.</exception>
+		public NewsPost GetSpecificArticle(string hash)
+		{
+			//Get a response from the server
+			HttpResponseMessage responseMessage = client.GetAsync(GetArticleApiEndpoint.Replace("%HASH%", hash)).Result;
+			string jsonResult = responseMessage.Content.ReadAsStringAsync().Result;
+
+			try
+			{
+				NewsPost response = JsonConvert.DeserializeObject<NewsPost>(jsonResult);
 
 				return response;
 			}
